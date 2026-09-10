@@ -209,15 +209,14 @@
     <p>We may collect information that users enter into or register with the App, including:</p>
     <ul>
       <li>Blood glucose data</li>
-      <li>Meal records</li>
-      <li>Exercise records</li>
-      <li>Medication, insulin, and other health management records</li>
-      <li>Health notes, lifestyle records, and free-text entries</li>
-      <li>Profile information voluntarily provided by users</li>
+      <li>Meal and food records</li>
+      <li>Water intake and exercise records</li>
+      <li>Optional free-text notes you add to a record — these are stored only on your device and are not uploaded to our servers</li>
+      <li>User-selected settings, such as glucose target ranges/thresholds and daily goals</li>
       <li>Information provided when contacting customer support</li>
     </ul>
     <div class="health-notice">
-      The information above may include information related to a user's health. Health-related data, including blood glucose information, is handled with greater care than general usage information.
+      The information above may include information related to a user's health. Health-related data, including blood glucose information, is handled with greater care than general usage information. We do not collect medication/insulin records or user profile information (such as name, date of birth, or contact details), as the App does not currently provide features for entering them.
     </div>
 
     <h3>1.2 Device and Usage Information</h3>
@@ -233,12 +232,28 @@
     <h3>1.3 Information Obtained Through Third-Party Services</h3>
     <p>We may use the following third-party services in connection with the operation of the App.</p>
     <div class="service-card">
-      <strong>Firebase (Google LLC)</strong>
-      <span>Authentication, analytics, crash reporting, data storage, and related services</span>
+      <strong>Firebase Authentication (Google LLC)</strong>
+      <span>The App signs you in using Firebase's anonymous authentication, which creates a random anonymous identifier used only to support cloud sync of your records. This does not require or collect an email address, password, or other directly identifying account information.</span>
+    </div>
+    <div class="service-card">
+      <strong>Firebase Analytics (Google LLC)</strong>
+      <span>Collects basic app usage behavior, such as which screens are opened and which features are used, together with subscription-related events (e.g. viewing the Premium page, completing a purchase). Blood glucose values, meal/food names, and other health record content are never sent to Firebase Analytics.</span>
+    </div>
+    <div class="service-card">
+      <strong>Firebase Crashlytics (Google LLC)</strong>
+      <span>Automatically collects crash and error reports (device/OS information, error type, and stack trace) to help us find and fix bugs. Known local-database errors are converted to a generic error category before being sent, so the underlying blood glucose value, food name, or other record content is not included in crash reports.</span>
+    </div>
+    <div class="service-card">
+      <strong>Cloud Firestore (Google LLC)</strong>
+      <span>If cloud sync is enabled, your blood glucose, meal, water, and exercise records are stored on Firestore under a location scoped to your anonymous Firebase identifier, and are not accessible to other users.</span>
     </div>
     <div class="service-card">
       <strong>RevenueCat, Inc.</strong>
-      <span>Subscription status management and related services</span>
+      <span>Subscription status management. RevenueCat identifies your device using its own app-user identifier, which is separate from the Firebase identifier above.</span>
+    </div>
+    <div class="service-card">
+      <strong>Google AdMob / Google Mobile Ads SDK (Google LLC)</strong>
+      <span>Displays advertisements to users on the free plan (Premium subscribers do not see ads). Health information such as blood glucose values, meal/food records, and other health record content is not used for advertising targeting or personalized advertising by the App.</span>
     </div>
     <div class="service-card">
       <strong>Apple App Store / Google Play</strong>
@@ -255,7 +270,7 @@
     <p>We use collected information for the following purposes:</p>
     <ul>
       <li>To provide, maintain, and improve the App and related services</li>
-      <li>To provide recording features for blood glucose, meals, exercise, medication, and other health-related information</li>
+      <li>To provide recording features for blood glucose, meals, water intake, exercise, and other health-related information</li>
       <li>To provide personalized displays, summaries, analyses, charts, and related features</li>
       <li>To verify subscription status and provide Premium features</li>
       <li>To investigate bugs, respond to service issues, and improve quality</li>
@@ -271,7 +286,7 @@
   <!-- 3. Health-Related Information -->
   <section>
     <h2>3. Handling of Health-Related Information</h2>
-    <p>The App may process information related to health, including blood glucose levels, meals, medication use, exercise records, health notes, and other similar information.</p>
+    <p>The App may process information related to health, including blood glucose levels, meals, water intake, exercise records, and any free-text notes you choose to add.</p>
     <p>We handle this information with greater care than general usage information and seek to use it only to the extent necessary to provide and improve the App.</p>
     <p>The App is not intended to provide medical care, diagnosis, or treatment. Health-related information is processed for the purpose of helping users record and manage their own information.</p>
   </section>
@@ -305,8 +320,9 @@
     <h3>5.3 Third-Party Service Integrations</h3>
     <p>We may share information with third-party service providers for purposes including:</p>
     <ul>
-      <li>Firebase authentication, analytics, crash reporting, and data storage</li>
+      <li>Firebase authentication, analytics, crash reporting, and data storage (see Section 1.3 for details on each Firebase service)</li>
       <li>RevenueCat subscription status verification</li>
+      <li>Google AdMob / Google Mobile Ads SDK advertising (free plan only; not used with health information — see Section 1.3)</li>
       <li>Apple App Store / Google Play payment, purchase, and subscription verification</li>
     </ul>
 
@@ -332,7 +348,8 @@
   <section>
     <h2>7. Data Retention and Deletion</h2>
     <p>We retain collected information for as long as reasonably necessary to operate the App. When information is no longer necessary, we will take reasonable steps to delete, anonymize, or otherwise appropriately process it.</p>
-    <p>Even if a user deletes the App or requests deletion of an account, we may retain certain information for a limited period where necessary to comply with legal obligations, maintain payment records, prevent fraud or abuse, resolve disputes, or for other legitimate purposes.</p>
+    <p>You can delete your data yourself at any time from within the App: open <strong>Menu → Data → Delete All Data</strong>. This permanently deletes your blood glucose, meal, water, and exercise records from your device and from our cloud storage, and removes the anonymous identifier associated with those records. This action does not affect an active subscription. If you are unable to use this feature, you may also contact us using the information in Section 12 to request deletion.</p>
+    <p>Even after using this feature, deleting the App, or requesting deletion, we may retain certain information for a limited period where necessary to comply with legal obligations, maintain payment records, prevent fraud or abuse, resolve disputes, or for other legitimate purposes.</p>
   </section>
 
   <hr class="section-divider">
