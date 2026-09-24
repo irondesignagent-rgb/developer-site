@@ -3,7 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="IronDesign develops simple, practical mobile apps." />
+
+  <meta
+    name="description"
+    content="IronDesign develops simple, practical mobile apps."
+  />
+
   <title>IronDesign | Independent App Developer</title>
 </head>
 
@@ -15,43 +20,220 @@
   line-height: 1.6;
   color: #222;
 ">
+
+  <!-- Header -->
   <header>
-    <h1>IronDesign</h1>
-    <p>Independent app developer creating simple and practical mobile apps.</p>
+
+    <div style="
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    ">
+      <h1 style="margin: 0;">IronDesign</h1>
+
+      <!-- Language Selector -->
+      <div style="
+        font-size: 14px;
+        white-space: nowrap;
+      ">
+        <button
+          id="lang-en"
+          onclick="setLanguage('en')"
+          style="
+            border: none;
+            background: none;
+            padding: 0;
+            cursor: pointer;
+            font: inherit;
+            color: #222;
+          "
+        >
+          English
+        </button>
+
+        <span style="color: #999; margin: 0 6px;">|</span>
+
+        <button
+          id="lang-ja"
+          onclick="setLanguage('ja')"
+          style="
+            border: none;
+            background: none;
+            padding: 0;
+            cursor: pointer;
+            font: inherit;
+            color: #222;
+          "
+        >
+          日本語
+        </button>
+      </div>
+    </div>
+
+
+    <!-- English -->
+    <p class="lang-en">
+      Independent app developer creating simple and practical mobile apps.
+    </p>
+
+    <!-- Japanese -->
+    <p class="lang-ja" style="display: none;">
+      シンプルで実用的なモバイルアプリを開発しています。
+    </p>
+
   </header>
 
+
   <main>
-    <section>
-      <h2>Apps</h2>
 
+    <!-- Apps -->
+    <section style="margin-top: 40px;">
+
+      <h2 class="lang-en">Apps</h2>
+      <h2 class="lang-ja" style="display: none;">アプリ</h2>
+
+
+      <!-- GlucoHabit -->
       <h3>GlucoHabit</h3>
-      <p>
-        A simple app for recording and reviewing blood glucose,
-        meals, water intake, and exercise.
-      </p>
 
-      <p>
-        <a href="/support.html">Support</a>
-        ·
-        <a href="/glucohabit/privacy-en.html">Privacy Policy</a>
-        ·
-        <a href="/glucohabit/terms-en.html">Terms of Use</a>
-      </p>
+
+      <!-- English -->
+      <div class="lang-en">
+
+        <p>
+          A simple app for recording and reviewing blood glucose,
+          meals, water intake, and exercise.
+        </p>
+
+        <p>
+          <a href="/support.html">Support</a>
+          ·
+          <a href="/glucohabit/privacy-en.html">Privacy Policy</a>
+          ·
+          <a href="/glucohabit/terms-en.html">Terms of Use</a>
+        </p>
+
+      </div>
+
+
+      <!-- Japanese -->
+      <div class="lang-ja" style="display: none;">
+
+        <p>
+          血糖値、食事、水分、運動を記録し、
+          日々の記録を振り返るためのシンプルなアプリです。
+        </p>
+
+        <p>
+          <a href="/support-ja.html">サポート</a>
+          ·
+          <a href="/glucohabit/privacy-ja.html">プライバシーポリシー</a>
+          ·
+          <a href="/glucohabit/terms-ja.html">利用規約</a>
+        </p>
+
+      </div>
+
     </section>
 
-    <section>
-      <h2>Contact</h2>
+
+    <!-- Contact -->
+    <section style="margin-top: 48px;">
+
+      <h2 class="lang-en">Contact</h2>
+      <h2 class="lang-ja" style="display: none;">お問い合わせ</h2>
+
       <p>
-        Email:
+        <span class="lang-en">Email:</span>
+        <span class="lang-ja" style="display: none;">メール：</span>
+
         <a href="mailto:irondesign.support@gmail.com">
           irondesign.support@gmail.com
         </a>
       </p>
+
     </section>
+
   </main>
 
-  <footer style="margin-top: 48px; font-size: 14px; color: #666;">
-    <p>© 2026 IronDesign. All rights reserved.</p>
+
+  <!-- Footer -->
+  <footer style="
+    margin-top: 56px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+    font-size: 14px;
+    color: #666;
+  ">
+
+    <p>
+      © 2026 IronDesign. All rights reserved.
+    </p>
+
   </footer>
+
+
+  <!-- Language Switching -->
+  <script>
+    function setLanguage(lang) {
+
+      const englishElements = document.querySelectorAll('.lang-en');
+      const japaneseElements = document.querySelectorAll('.lang-ja');
+
+      if (lang === 'ja') {
+
+        englishElements.forEach(function(element) {
+          element.style.display = 'none';
+        });
+
+        japaneseElements.forEach(function(element) {
+          element.style.display = '';
+        });
+
+        document.documentElement.lang = 'ja';
+
+        document.getElementById('lang-en').style.fontWeight = 'normal';
+        document.getElementById('lang-ja').style.fontWeight = 'bold';
+
+      } else {
+
+        englishElements.forEach(function(element) {
+          element.style.display = '';
+        });
+
+        japaneseElements.forEach(function(element) {
+          element.style.display = 'none';
+        });
+
+        document.documentElement.lang = 'en';
+
+        document.getElementById('lang-en').style.fontWeight = 'bold';
+        document.getElementById('lang-ja').style.fontWeight = 'normal';
+      }
+
+      localStorage.setItem('ironDesignLanguage', lang);
+    }
+
+
+    // Use saved language if available.
+    // Otherwise, use Japanese for Japanese browsers
+    // and English for all other languages.
+    const savedLanguage = localStorage.getItem('ironDesignLanguage');
+
+    if (savedLanguage === 'en' || savedLanguage === 'ja') {
+      setLanguage(savedLanguage);
+    } else {
+      const browserLanguage =
+        navigator.language || navigator.userLanguage || 'en';
+
+      if (browserLanguage.toLowerCase().startsWith('ja')) {
+        setLanguage('ja');
+      } else {
+        setLanguage('en');
+      }
+    }
+  </script>
+
 </body>
 </html>
